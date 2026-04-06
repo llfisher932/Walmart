@@ -7,6 +7,14 @@ builder.Services.AddTransient<IProductRepository, EFProductRepository>();
 
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -42,6 +50,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Product}/{action=List}/{id?}");
+app.UseSession();
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
 app.Run();

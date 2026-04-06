@@ -12,7 +12,7 @@
 @foreach (string category in Model)
 {
     <div class="row">
-        <a class="btn btn-outline-dark btn-block m-2"
+        <a class="btn btn-outline-dark btn-block m-2 @(category == ViewBag.SelectedCategory ? "btn-primary": "btn-outline-dark")"
            asp-action="List"
            asp-controller="Product"
            asp-route-category="@category"
