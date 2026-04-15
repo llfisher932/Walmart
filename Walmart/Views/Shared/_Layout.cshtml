@@ -5,26 +5,24 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
-    <title>SportsStore</title>
+    <title>Walmart</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse bg-info">
-        <nav class="navbar navbar-inverse bg-info justify-content-between">
-            <a class="navbar-brand text-white" href="#">SPORTS STORE</a>
-            <div class="float-right">
+    <nav class="navbar navbar-inverse bg-primary">
+        <nav class="navbar navbar-inverse bg-primary justify-content-between w-100">
+            <a class="navbar-brand ps-2" href="#"><img src="//i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg" class="h-auto mw-10 img-fluid" style="width: 50px;" /></a>
+            <div class="float-start pe-4 text-white">
                 @await Component.InvokeAsync("CartSummary")
             </div>
         </nav>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col col-md-3">
+            <div class="d-flex overflow-x-scroll">
                 @await Component.InvokeAsync("NavigationMenu")
             </div>
-            <div class="col col-md-9">
+            <div>
                 @RenderBody()
             </div>
-        </div>
     </div>
 </body>
 </html>

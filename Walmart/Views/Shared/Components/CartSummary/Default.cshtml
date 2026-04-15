@@ -3,15 +3,15 @@
 <div class="">
     @if (Model.Lines.Count() > 0)
     {
-        <small class="navbar-text">
+        <small class="text-white fs-6 pe-2">
             <b>Your cart:</b>
             @Model.Lines.Sum(x => x.Quantity) item(s)
             @Model.ComputeTotalValue().ToString("c")
         </small>
     }
-    <a class="btn btn-sm btn-dark"
+    <a class="btn btn-primary"
            asp-controller="Cart" asp-action="Index"
            asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
-        <i class="fa fa-shopping-cart"></i>
+        <i class="fa fa-shopping-cart fs-6"></i>
     </a>
 </div>
