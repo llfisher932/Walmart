@@ -1,29 +1,35 @@
 ﻿@model Product
-<div class="card m-3 rounded">
-    <div class="card-block m-2">
-        <div class="card-body">
-            <h3 class="card-title">
-                <strong>@Model.Name</strong>
-            </h3>
+<div class="col">
+    <div class="card rounded-1 h-100">
+        <div class="card-block m-2 h-100">
+            <div class="card-body h-100 d-flex flex-column">
+                <h3 class="card-title">
+                    <strong>@Model.Name</strong>
+                </h3>
 
-            <p class="card-text lead">
-                @Model.Description
-            </p>
-
-            <span class="float-left bg-success text-white rounded m-2 p-1">
-                @Model.Price.ToString("c")
-            </span>
-
-            <form id="@Model.ProductID" asp-action="AddToCart"
-                  asp-controller="Cart" method="post" class="float-start m-2 p-1">
-                <input type="hidden" asp-for="ProductID" />
-                <input type="hidden" name="returnUrl"
-                       value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-                <button type="submit" class="btn btn-info btn-sm float-start">
-                    Add To Cart
-                </button>
-            </form>
-
+                <p class="card-text lead">
+                    @Model.Description
+                </p>
+                <div class="row mt-auto">
+                    <div class="col my-auto">
+                        
+                    <div class="bg-success text-white text-center rounded h-100 p-2">
+                        @Model.Price.ToString("c")
+                    </div>
+                    </div>
+                    <div class="col">
+                    <form id="@Model.ProductID" asp-action="AddToCart"
+                          asp-controller="Cart" method="post" class=" w-100 h-100">
+                        <input type="hidden" asp-for="ProductID" />
+                        <input type="hidden" name="returnUrl"
+                               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                        <button type="submit" class="btn btn-info btn-sm w-100 h-100">
+                            Add To Cart
+                        </button>
+                    </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
