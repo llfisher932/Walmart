@@ -26,6 +26,18 @@ namespace Walmart.Models
             }
         }
 
+        public virtual void SetQuantity(Product product, int quantity)
+        {
+            CartLine line = lineCollection
+                .Where(p => p.Product.ProductID == product.ProductID)
+                .FirstOrDefault();
+
+            if (line != null)
+            {
+                line.Quantity = quantity;
+            }
+        }
+
         public virtual void RemoveLine(Product product) =>
             lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
 

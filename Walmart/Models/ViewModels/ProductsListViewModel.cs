@@ -11,5 +11,7 @@ namespace Walmart.Models.ViewModels
         public PagingInfo PagingInfo { get; set; }
 
         public string CurrentCategory { get; set; }
+
+        public string SearchQuery { get; set; }
     }
 }
