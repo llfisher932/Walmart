@@ -10,7 +10,11 @@
 <body>
     <nav class="navbar navbar-inverse bg-primary">
         <nav class="navbar navbar-inverse bg-primary justify-content-between w-100">
-            <a class="navbar-brand ps-2" href="#"><img src="//i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg" class="h-auto mw-10 img-fluid" style="width: 50px;" /></a>
+            <a class="navbar-brand ps-2" href="/"><img src="//i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg" class="h-auto mw-10 img-fluid" style="width: 50px;" /></a>
+            <form class="d-flex flex-grow-1 mx-3" asp-controller="Product" asp-action="List" method="get">
+                <input class="form-control me-2" type="search" name="searchQuery" placeholder="Search Walmart" aria-label="Search" />
+                <button class="btn btn-warning fw-bold" type="submit">Search</button>
+            </form>
             <div class="float-start pe-4 text-white">
                 @await Component.InvokeAsync("CartSummary")
             </div>

@@ -16,26 +16,28 @@ namespace Walmart.Controllers
             repository = repo;
         }
 
-        public ViewResult List(string category, int page = 1)
-            => View(new ProductsListViewModel
+        public ViewResult List(string category, int page = 1, string searchQuery = null)
+        {
+            var filtered = repository.Products
+                .Where(p => category == null || p.Category == category)
+                .Where(p => searchQuery == null || p.Name.Contains(searchQuery) || p.Description.Contains(searchQuery));
+
+            return View(new ProductsListViewModel
             {
-                Products = repository.Products
-                         .Where(p => category == null || p.Category == category)
-                         .OrderBy(p => p.ProductID)
-                         .Skip((page - 1) * PageSize)
-                         .Take(PageSize),
+                Products = filtered
+                    .OrderBy(p => p.ProductID)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = category == null ?
-                                repository.Products.Count() :
-                                repository.Products.Where(e =>
-                                    e.Category == category).Count()
-
+                    TotalItems = filtered.Count()
                 },
-                CurrentCategory = category
+                CurrentCategory = category,
+                SearchQuery = searchQuery
             });
+        }
 
 
     }
