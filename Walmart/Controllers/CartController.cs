@@ -25,6 +25,7 @@ namespace Walmart.Controllers
             });
         }
 
+        [HttpPost]
         public RedirectToActionResult AddToCart(int productId, string returnUrl)
         {
             Product product = repository.Products

@@ -1,0 +1,152 @@
+@{
+    ViewData["Title"] = "Welcome to Walmart";
+}
+
+<!-- Hero Banner -->
+<div class="p-5 mb-4 text-white rounded-3" style="background: linear-gradient(135deg, #0071ce, #004f9a);">
+    <div class="container-fluid py-3 text-center">
+        <img src="//i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg"
+             style="width:70px;" class="mb-3" />
+        <h1 class="display-5 fw-bold">Save Money. Live Better.</h1>
+        <p class="col-md-8 mx-auto fs-5">
+            Shop fresh groceries and everyday essentials at the lowest prices — delivered right to your door.
+        </p>
+        <a class="btn btn-warning btn-lg fw-bold px-5 mt-2" asp-controller="Product" asp-action="List">
+            Shop Now
+        </a>
+    </div>
+</div>
+
+<!-- Quick Links -->
+<h4 class="fw-bold mb-3">Explore</h4>
+<div class="row row-cols-2 row-cols-md-4 g-3 mb-5">
+
+    <div class="col">
+        <a asp-controller="Product" asp-action="List" class="text-decoration-none">
+            <div class="card text-center h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <i class="fa fa-shopping-basket fa-2x text-primary mb-2"></i>
+                    <h6 class="fw-bold mb-0">Products</h6>
+                    <small class="text-muted">Browse our grocery catalog</small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col">
+        <a asp-controller="Cart" asp-action="Index" asp-route-returnUrl="/" class="text-decoration-none">
+            <div class="card text-center h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <i class="fa fa-shopping-cart fa-2x text-success mb-2"></i>
+                    <h6 class="fw-bold mb-0">My Cart</h6>
+                    <small class="text-muted">View your selected items</small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col">
+        <a asp-controller="Order" asp-action="Checkout" class="text-decoration-none">
+            <div class="card text-center h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <i class="fa fa-credit-card fa-2x text-warning mb-2"></i>
+                    <h6 class="fw-bold mb-0">Checkout</h6>
+                    <small class="text-muted">Complete your purchase</small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col">
+        <a asp-controller="Order" asp-action="Retrieve" class="text-decoration-none">
+            <div class="card text-center h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <i class="fa fa-history fa-2x text-danger mb-2"></i>
+                    <h6 class="fw-bold mb-0">My Orders</h6>
+                    <small class="text-muted">Track past purchases</small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col">
+        <a asp-controller="Info" asp-action="About" class="text-decoration-none">
+            <div class="card text-center h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <i class="fa fa-building fa-2x text-secondary mb-2"></i>
+                    <h6 class="fw-bold mb-0">About Us</h6>
+                    <small class="text-muted">Our mission and team</small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col">
+        <a asp-controller="Info" asp-action="Policies" class="text-decoration-none">
+            <div class="card text-center h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <i class="fa fa-file-text fa-2x text-info mb-2"></i>
+                    <h6 class="fw-bold mb-0">Policies</h6>
+                    <small class="text-muted">Shipping, tax & returns</small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col">
+        <a asp-controller="Info" asp-action="FAQ" class="text-decoration-none">
+            <div class="card text-center h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <i class="fa fa-question-circle fa-2x text-primary mb-2"></i>
+                    <h6 class="fw-bold mb-0">FAQ</h6>
+                    <small class="text-muted">Common questions answered</small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col">
+        <a asp-controller="Account" asp-action="Register" class="text-decoration-none">
+            <div class="card text-center h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <i class="fa fa-user-plus fa-2x text-success mb-2"></i>
+                    <h6 class="fw-bold mb-0">Register</h6>
+                    <small class="text-muted">Create an account</small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+<!-- Why Shop With Us -->
+<h4 class="fw-bold mb-3">Why Shop With Us?</h4>
+<div class="row row-cols-1 row-cols-md-3 g-3 mb-5">
+    <div class="col">
+        <div class="card border-0 bg-light h-100">
+            <div class="card-body text-center py-4">
+                <i class="fa fa-truck fa-2x text-primary mb-2"></i>
+                <h6 class="fw-bold">Fast Delivery</h6>
+                <p class="text-muted small mb-0">Get your groceries delivered to your door quickly and reliably.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card border-0 bg-light h-100">
+            <div class="card-body text-center py-4">
+                <i class="fa fa-tag fa-2x text-success mb-2"></i>
+                <h6 class="fw-bold">Everyday Low Prices</h6>
+                <p class="text-muted small mb-0">We guarantee the lowest prices on all your favorite grocery items.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card border-0 bg-light h-100">
+            <div class="card-body text-center py-4">
+                <i class="fa fa-refresh fa-2x text-danger mb-2"></i>
+                <h6 class="fw-bold">Easy Returns</h6>
+                <p class="text-muted small mb-0">Not satisfied? Return any item within 30 days, no questions asked.</p>
+            </div>
+        </div>
+    </div>
+</div>

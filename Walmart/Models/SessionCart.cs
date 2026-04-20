@@ -30,6 +30,12 @@ namespace Walmart.Models
             Session.SetJson("Cart", this);
         }
 
+        public override void SetQuantity(Product product, int quantity)
+        {
+            base.SetQuantity(product, quantity);
+            Session.SetJson("Cart", this);
+        }
+
         public override void Clear()
         {
             base.Clear();
