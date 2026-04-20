@@ -6,6 +6,102 @@
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
     <title>Walmart</title>
+    <style>
+        .walmart-footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            padding: 40px 24px 24px;
+            font-family: 'Inter', sans-serif;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+
+        .footer-column h4 {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s ease;
+            display: inline-block;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .feedback-btn {
+            display: inline-block;
+            background-color: #facc15;
+            color: #1e293b !important;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+        }
+
+        .feedback-btn:hover {
+            background-color: #e5b800;
+            color: #1e293b !important;
+        }
+
+        .legal-links {
+            font-size: 0.75rem;
+            margin: 12px 0;
+            color: #9ca3af;
+        }
+
+        .delete-link {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        .delete-link:hover {
+            color: #f87171;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #9ca3af;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            margin: 8px 0;
+        }
+    </style>
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <nav class="navbar navbar-inverse bg-primary">
@@ -17,12 +113,67 @@
         </nav>
     </nav>
     <div class="container">
-            <div class="d-flex overflow-x-scroll">
-                @await Component.InvokeAsync("NavigationMenu")
-            </div>
-            <div>
-                @RenderBody()
-            </div>
+        <div class="d-flex overflow-x-scroll">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+        <div>
+            @RenderBody()
+        </div>
     </div>
+
+    <footer class="walmart-footer">
+        <div class="footer-container">
+            <!-- Column 1 -->
+            <div class="footer-column">
+                <h4>All Departments</h4>
+                <ul>
+                    <li><a href="#">Store Directory</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="ourcompany.cshtml">Our Company</a></li>
+                    <li><a href="#">Sell on Walmart.com</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-column">
+                <h4>Terms of Use</h4>
+                <ul>
+                    <li><a href="#">Privacy Notice</a></li>
+                    <li><a href="#">California Supply Chain Act</a></li>
+                    <li><a href="#">Your Privacy Choices</a></li>
+                    <li><a href="#">Customer Privacy Center</a></li>
+                    <li><a href="#">Notice at Collection</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-column">
+                <h4>Get the App</h4>
+                <ul>
+                    <li><a href="#">Walmart App</a></li>
+                    <li><a href="#">Learn about Spark Driver</a></li>
+                    <li><a href="#">Brand Shop Directory</a></li>
+                    <li><a href="#">Pharmacy</a></li>
+                    <li><a href="#">Product Recalls</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-column">
+                <h4>We'd love to hear what you think!</h4>
+                <a href="#" class="feedback-btn">Give feedback</a>
+                <p class="legal-links">#IYWYK | AdChoices</p>
+                <a href="#" class="delete-link">Delete Account</a>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p>© 2026 Walmart. The trademarks Walmart and the Walmart Spark design are registered with the US Patent and Trademark Office. All Rights Reserved.</p>
+            <p>Consumer Health Data Privacy Notices - Safety Data Sheet - Tax Exempt Program</p>
+        </div>
+    </footer>
 </body>
 </html>

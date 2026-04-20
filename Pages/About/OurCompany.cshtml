@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Company - About Walmart | Business Background</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f9;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        /* Walmart Brand Colors */
+        :root {
+            --walmart-blue: #0071dc;
+            --walmart-yellow: #ffc220;
+            --walmart-dark: #1e293b;
+            --walmart-gray: #64748b;
+            --border-light: #e2e8f0;
+        }
+
+        /* Header / Navigation (consistent with main site) */
+        .top-bar {
+            background-color: #1e2a3e;
+            color: white;
+            font-size: 0.75rem;
+            padding: 6px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .top-links a:hover { color: white; }
+        
+        .main-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-icon {
+            background: var(--walmart-blue);
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .logo-text span { color: var(--walmart-blue); }
+        
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            margin-left: auto;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--walmart-blue);
+            border-bottom: 2px solid var(--walmart-blue);
+            padding-bottom: 4px;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            padding: 48px 24px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .page-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #334155;
+            font-size: 1.1rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 48px auto;
+            padding: 0 24px;
+        }
+
+        /* Card Style */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-light);
+        }
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 5px solid var(--walmart-blue);
+            padding-left: 18px;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 20px 0 12px 0;
+            color: #0f3b5c;
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 16px;
+        }
+        .info-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 16px;
+            border-left: 3px solid var(--walmart-blue);
+        }
+        .info-box strong {
+            color: var(--walmart-dark);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .badge {
+            background: #e6f0ff;
+            color: var(--walmart-blue);
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .step {
+            background: #f1f5f9;
+            padding: 12px 18px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .step i {
+            color: var(--walmart-blue);
+        }
+
+        /* Executive Table */
+        .executive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        .executive-table th, .executive-table td {
+            text-align: left;
+            padding: 16px 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .executive-table th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .executive-table tr:hover {
+            background-color: #fafcff;
+        }
+
+        .mission-block {
+            background: #fefce8;
+            border: 1px solid #fde047;
+            border-radius: 28px;
+            padding: 28px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .mission-text {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #854d0e;
+            font-style: italic;
+        }
+
+        /* Footer (matching Walmart style) */
+        .walmart-footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            padding: 40px 24px 24px;
+            margin-top: 60px;
+        }
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-column h4 {
+            color: white;
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+        }
+        .footer-column a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .footer-column a:hover { color: white; }
+        .feedback-btn {
+            background: #facc15;
+            color: #1e293b !important;
+            padding: 8px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.7rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        @media (max-width: 800px) {
+            .footer-container { grid-template-columns: repeat(2,1fr); }
+            .grid-2col { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 1.8rem; }
+        }
+        @media (max-width: 500px) {
+            .footer-container { grid-template-columns: 1fr; }
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--walmart-blue);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top utility bar -->
+<div class="top-bar">
+    <div class="top-links">
+        <a href="#">Departments</a>
+        <a href="#">Services</a>
+        <a href="#">Rollbacks & More</a>
+        <a href="#">Pharmacy</a>
+    </div>
+    <div><i class="fas fa-cloud-sun"></i> 69°F | 10:05 PM</div>
+</div>
+
+<!-- Main Header with Navigation -->
+<div class="main-header">
+    <div class="logo-area">
+        <div class="logo-icon">W</div>
+        <div class="logo-text">mart<span>.</span></div>
+    </div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#" class="active">Our Company</a>
+        <a href="#">Shop</a>
+        <a href="#">Services</a>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<div class="page-hero">
+    <h1>Our Company <i class="fas fa-store" style="color: #0071dc;"></i></h1>
+    <p>Walmart is one of the largest retail companies in the world, offering affordable products, convenient shopping, and digital innovation for millions of customers globally.</p>
+</div>
+
+<div class="container">
+    <!-- Business Background Card -->
+    <div class="card">
+        <h2><i class="fas fa-building"></i> Business Background</h2>
+        <p>Walmart is one of the largest retail companies in the world, offering groceries, household goods, electronics, clothing, pharmacy services, and many other products. Through its physical stores and online platform, Walmart provides customers with affordable prices, convenient shopping, and multiple fulfillment options such as home delivery, shipping, and curbside pickup.</p>
+        <p style="margin-top: 16px;">The company serves millions of customers daily and has expanded its digital presence through online grocery ordering, e-commerce services, and mobile shopping tools.</p>
+    </div>
+
+    <!-- Type of E-Business, Model, Process Model -->
+    <div class="card">
+        <h2><i class="fas fa-chart-line"></i> E-Business & Model Overview</h2>
+        
+        <div class="grid-2col">
+            <div class="info-box">
+                <span class="badge">Type of E-Business</span>
+                <strong><i class="fas fa-users"></i> Business-to-Consumer (B2C)</strong>
+                <p>Walmart operates as a B2C e-business because it sells products directly to consumers through its website, mobile app, and online ordering systems.</p>
+            </div>
+            <div class="info-box">
+                <span class="badge">Business Model</span>
+                <strong><i class="fas fa-chart-pie"></i> Large-scale retail & e-commerce</strong>
+                <p>Revenue sources: Grocery sales, general merchandise, online orders, delivery/pickup services, membership programs, and third-party marketplace sales.</p>
+            </div>
+        </div>
+
+        <h3><i class="fas fa-diagram-project"></i> Business Process Model (Online Shopping)</h3>
+        <div class="process-steps">
+            <span class="step"><i class="fas fa-mobile-alt"></i> 1. Visit website/app</span>
+            <span class="step"><i class="fas fa-search"></i> 2. Search products</span>
+            <span class="step"><i class="fas fa-cart-plus"></i> 3. Add to cart</span>
+            <span class="step"><i class="fas fa-truck"></i> 4. Select delivery/pickup</span>
+            <span class="step"><i class="fas fa-credit-card"></i> 5. Payment</span>
+            <span class="step"><i class="fas fa-check-circle"></i> 6. Order confirmed</span>
+            <span class="step"><i class="fas fa-box-open"></i> 7. Prepare & ship</span>
+            <span class="step"><i class="fas fa-user-check"></i> 8. Customer receives</span>
+            <span class="step"><i class="fas fa-undo-alt"></i> 9. Returns / reorder</span>
+        </div>
+        <p style="margin-top: 20px; font-size:0.85rem; color:#475569;">This seamless process integrates physical stores with digital shopping to give flexible purchasing options.</p>
+    </div>
+
+    <!-- Mission & Executive Board -->
+    <div class="card">
+        <h2><i class="fas fa-bullhorn"></i> Mission & Leadership</h2>
+        <div class="mission-block">
+            <i class="fas fa-quote-left" style="font-size: 2rem; color: #eab308;"></i>
+            <div class="mission-text">"To save people money so they can live better."</div>
+            <p style="margin-top: 12px;">— Walmart Mission Statement</p>
+        </div>
+
+        <h3><i class="fas fa-user-tie"></i> Executive Board Members</h3>
+        <table class="executive-table">
+            <thead>
+                <tr><th>Position</th><th>Name</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Chief Executive Officer (CEO)</td><td><strong>Doug McMillon</strong></td></tr>
+                <tr><td>Executive Vice President / CFO</td><td>John David Rainey</td></tr>
+                <tr><td>President and CEO, Walmart U.S.</td><td>John Furner</td></tr>
+                <tr><td>President and CEO, Sam’s Club</td><td>Chris Nicholas</td></tr>
+                <tr><td>President and CEO, Walmart International</td><td>Kathryn McLay</td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 18px; font-size:0.8rem; color:#4b5563;"><i class="fas fa-gavel"></i> Walmart’s leadership drives innovation, sustainability, and customer-first strategies across global operations.</p>
+    </div>
+
+    <!-- Back to main experience hint -->
+    <div style="text-align: center; margin: 20px 0;">
+        <a href="#" class="back-link"><i class="fas fa-arrow-left"></i> Back to Walmart Homepage</a>
+    </div>
+</div>
+
+<!-- Walmart-style Footer (exactly as requested) -->
+<footer class="walmart-footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>All Departments</h4>
+            <a href="#">Store Directory</a>
+            <a href="#">Careers</a>
+            <a href="#">Our Company</a>
+            <a href="#">Sell on Walmart.com</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="footer-column">
+            <h4>Terms of Use</h4>
+            <a href="#">Privacy Notice</a>
+            <a href="#">California Supply Chain Act</a>
+            <a href="#">Your Privacy Choices</a>
+            <a href="#">Customer Privacy Center</a>
+            <a href="#">Notice at Collection</a>
+        </div>
+        <div class="footer-column">
+            <h4>Get the App</h4>
+            <a href="#">Walmart App</a>
+            <a href="#">Learn about Spark Driver</a>
+            <a href="#">Brand Shop Directory</a>
+            <a href="#">Pharmacy</a>
+            <a href="#">Product Recalls</a>
+            <a href="#">Accessibility</a>
+        </div>
+        <div class="footer-column">
+            <h4>We'd love to hear what you think!</h4>
+            <a href="#" class="feedback-btn">Give feedback</a>
+            <p style="margin: 12px 0;">#IYWYK | AdChoices</p>
+            <a href="#">Delete Account</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Walmart. The trademarks Walmart and the Walmart Spark design are registered with the US Patent and Trademark Office. All Rights Reserved.</p>
+        <p>Consumer Health Data Privacy Notices - Safety Data Sheet - Tax Exempt Program</p>
+    </div>
+</footer>
+</body>
+</html>
