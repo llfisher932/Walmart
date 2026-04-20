@@ -2,7 +2,7 @@
 using Walmart.Models;
 using Walmart.Models.ViewModels;
 
-namespace SportsStore.Controllers
+namespace Walmart.Controllers
 {
     public class CartController : Controller
     {
