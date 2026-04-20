@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -7,7 +7,7 @@
     <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
     <title>Walmart</title>
 </head>
-<body>
+<body class="d-flex min-vh-100 flex-column">
     <nav class="navbar navbar-inverse bg-primary justify-content-between w-100 px-2">
         <a class="navbar-brand ps-2" asp-controller="Home" asp-action="Index">
             <img src="//i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg" class="h-auto img-fluid" style="width:50px;" />
@@ -25,12 +25,23 @@
         </div>
     </nav>
     <div class="container">
-            <div class="d-flex overflow-x-scroll">
-                @await Component.InvokeAsync("NavigationMenu")
-            </div>
-            <div>
-                @RenderBody()
-            </div>
+        <div class="d-flex flex-nowrap overflow-auto">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    <div class="mt-auto py-3 px-5 bg-primary w-100 justify-content-between align-content-center d-flex text-white">
+        <div></div>
+        <div>test link 1</div>
+        <div>test link 2</div>
+        <div>test link 3</div>
+        <div>test link 4</div>
+        <div>test link 5</div>
+        <div>test link 6</div>
+        <div>test link 7</div>
+        <div></div>
     </div>
 </body>
 </html>
