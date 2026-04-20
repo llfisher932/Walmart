@@ -17,11 +17,12 @@
             {
                 <tr>
                     <td class="text-center">
-                        <form asp-action="UpdateQuantity" method="post" class="d-flex align-items-center justify-content-center gap-1">
+                        <form asp-action="UpdateQuantity" method="post" class="d-flex align-items-center justify-content-center">
                             <input type="hidden" name="productId" value="@line.Product.ProductID" />
                             <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
-                            <input type="number" name="quantity" value="@line.Quantity" min="1" class="form-control form-control-sm text-center" style="width:70px" />
-                            <button type="submit" class="btn btn-sm btn-secondary">Update</button>
+                            <input type="number" name="quantity" value="@line.Quantity" min="1"
+                                   class="form-control form-control-sm text-center" style="width:70px"
+                                   onchange="this.form.submit()" />
                         </form>
                     </td>
                     <td class="text-left">@line.Product.Name</td>

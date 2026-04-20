@@ -45,7 +45,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: null,
     pattern: "",
-    defaults: new { Controller = "Product", action = "List", page = 1 });
+    defaults: new { Controller = "Home", action = "Index" });
 
 
 app.MapControllerRoute(
