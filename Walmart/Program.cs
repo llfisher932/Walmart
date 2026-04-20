@@ -41,6 +41,10 @@ app.MapControllerRoute(
     name: null,
     pattern: "{category}",
     defaults: new { Controller = "Product", action = "List", page = 1 });
+app.MapControllerRoute(
+    name: null,
+    pattern: "Info/{action}",
+defaults: new { Controller = "Info" });
 
 app.MapControllerRoute(
     name: null,
