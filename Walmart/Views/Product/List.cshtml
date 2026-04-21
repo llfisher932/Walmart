@@ -1,16 +1,25 @@
-﻿@model ProductsListViewModel
+@model ProductsListViewModel
 
-
-
-<div class="row row-cols-4 g-3">
-    @foreach (var p in Model.Products)
-
-    {
-        @Html.Partial("ProductSummary", p);
-
-    }
-</div>
-<div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-default"
-     page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" class="btn-group float-start">
-</div>
+@if (!Model.Products.Any())
+{
+    <div class="text-center py-5">
+        <img src="//i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg"
+             style="width:80px; filter: grayscale(100%) opacity(40%);" class="mb-3" />
+        <h4 class="text-muted fw-bold">Nothing found :(</h4>
+        <p class="text-muted">Try searching for something else or browse our categories.</p>
+        <a asp-controller="Product" asp-action="List" class="btn btn-primary mt-2">Browse All Products</a>
+    </div>
+}
+else
+{
+    <div class="row row-cols-4 g-3">
+        @foreach (var p in Model.Products)
+        {
+            @Html.Partial("ProductSummary", p);
+        }
+    </div>
+    <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-default"
+         page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" class="btn-group float-start">
+    </div>
+}
