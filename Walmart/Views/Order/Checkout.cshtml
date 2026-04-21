@@ -1,46 +1,112 @@
-﻿@model Order
+@model Order
 
-<div class="row ms-1">
-        <h2>Check out now</h2>
-    <p>Please enter your details, and we'll ship your goods right away!</p>
+<div class="row ms-1 mt-4">
+    <div class="col-md-7">
+        <h2 class="fw-bold">Checkout</h2>
+        <p class="text-muted">Please enter your shipping details below.</p>
 
-    <div asp-validation-summary="All" class="text-danger"></div>
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+        {
+            <div asp-validation-summary="All" class="alert alert-danger rounded-3"></div>
+        }
 
-    <form asp-action="Checkout" method="post">
-        <h3>Ship to</h3>
-        <div class="form-group">
-            <label>Name:</label><input asp-for="Name" class="form-control" />
-        </div>
-        <h3>Address</h3>
-        <div class="form-group">
-            <label>Line 1:</label><input asp-for="Line1" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Line 2:</label><input asp-for="Line2" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Line 3:</label><input asp-for="Line3" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>City:</label><input asp-for="City" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>State:</label><input asp-for="State" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Zip:</label><input asp-for="Zip" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Country:</label><input asp-for="Country" class="form-control" />
-        </div>
-        <h3>Options</h3>
-        <div class="checkbox">
-            <label>
-                <input asp-for="GiftWrap" /> Gift wrap these items
-            </label>
-        </div>
-        <div class="text-center">
-            <input class="btn btn-primary" type="submit" value="Complete Order" />
-        </div>
-    </form>
+        <form asp-action="Checkout" method="post">
+            <h5 class="fw-bold mt-3 border-bottom pb-2">Ship To</h5>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Full Name</label>
+                <input asp-for="Name" class="form-control" placeholder="John Smith" />
+            </div>
+
+            <h5 class="fw-bold mt-3 border-bottom pb-2">Address</h5>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Address Line 1</label>
+                <input asp-for="Line1" class="form-control" placeholder="123 Main St" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Address Line 2 <span class="text-muted fw-normal">(Optional)</span></label>
+                <input asp-for="Line2" class="form-control" placeholder="Apt, Suite, Unit, etc." />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Address Line 3 <span class="text-muted fw-normal">(Optional)</span></label>
+                <input asp-for="Line3" class="form-control" placeholder="Additional address info" />
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <label class="form-label fw-semibold">City</label>
+                    <input asp-for="City" class="form-control" placeholder="New York" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label fw-semibold">State</label>
+                    <select asp-for="State" class="form-select">
+                        <option value="">-- Select State --</option>
+                        <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+                        <option>Arkansas</option><option>California</option><option>Colorado</option>
+                        <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+                        <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+                        <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+                        <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+                        <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+                        <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+                        <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+                        <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+                        <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+                        <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+                        <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+                        <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+                        <option>Texas</option><option>Utah</option><option>Vermont</option>
+                        <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+                        <option>Wisconsin</option><option>Wyoming</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label fw-semibold">Zip Code</label>
+                    <input asp-for="Zip" class="form-control" placeholder="10001" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Country</label>
+                <input asp-for="Country" class="form-control" value="United States" readonly />
+            </div>
+
+            <h5 class="fw-bold mt-3 border-bottom pb-2">Payment</h5>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Cardholder Name</label>
+                <input type="text" class="form-control" placeholder="John Smith" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Card Number</label>
+                <input type="text" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19"
+                       oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(.{4})/g,'$1 ').trim()" required />
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">Expiry Date</label>
+                    <input type="text" class="form-control" placeholder="MM/YY" maxlength="5"
+                           oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/^(\d{2})(\d)/,'$1/$2')" required />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">CVV</label>
+                    <input type="password" class="form-control" placeholder="123" maxlength="4" required />
+                </div>
+            </div>
+
+            <h5 class="fw-bold mt-3 border-bottom pb-2">Options</h5>
+            <div class="form-check mb-3">
+                <input asp-for="GiftWrap" class="form-check-input" />
+                <label class="form-check-label">Gift wrap these items</label>
+            </div>
+
+            <div class="text-center mt-4">
+                <a asp-controller="Cart" asp-action="Index" asp-route-returnUrl="/" class="btn btn-outline-secondary me-2">Back to Cart</a>
+                <input class="btn btn-primary px-5" type="submit" value="Complete Order" />
+            </div>
+        </form>
+    </div>
 </div>

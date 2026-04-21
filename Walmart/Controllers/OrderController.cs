@@ -14,7 +14,15 @@ namespace Walmart.Controllers
             cart = cartService;
         }
 
-        public ViewResult Checkout() => View(new Order());
+        public IActionResult Checkout()
+        {
+            if (cart.Lines.Count() == 0)
+            {
+                TempData["EmptyCartError"] = "Your cart is empty. Add some items before checking out.";
+                return RedirectToAction("Index", "Cart", new { returnUrl = "/" });
+            }
+            return View(new Order());
+        }
 
         [HttpPost]
         public IActionResult Checkout(Order order)
@@ -28,7 +36,7 @@ namespace Walmart.Controllers
                 order.Lines = cart.Lines.ToArray();
                 repository.SaveOrder(order);
                 cart.Clear();
-                return View("Completed");
+                return RedirectToAction("Completed", new { orderId = order.OrderID });
             }
             else
             {
@@ -36,10 +44,16 @@ namespace Walmart.Controllers
             }
         }
 
-        public ViewResult Completed()
+        public IActionResult Completed(int orderId)
         {
-            cart.Clear();
-            return View();
+            var order = repository.Orders.FirstOrDefault(o => o.OrderID == orderId);
+            if (order == null) return RedirectToAction("Index", "Home");
+            return View(order);
+        }
+
+        public ViewResult Retrieve()
+        {
+            return View(repository.Orders.OrderByDescending(o => o.OrderID));
         }
     }
 }
