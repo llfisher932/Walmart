@@ -1,1 +1,91 @@
-﻿<div>FAQ Page!</div>
+@{
+    ViewData["Title"] = "FAQ";
+}
+
+<div class="row ms-1 mt-4">
+
+    <div class="p-4 mb-4 text-white rounded-3" style="background: linear-gradient(135deg, #0071ce, #004f9a);">
+        <h1 class="fw-bold">Frequently Asked Questions</h1>
+        <p class="mb-0 fs-5">Find answers to the most common questions about our store.</p>
+    </div>
+
+    <!-- Question Index -->
+    <div class="col-12 mb-4">
+        <h5 class="fw-bold">Questions</h5>
+        <ol>
+            <li><a href="#q1">What is Walmart Groceries?</a></li>
+            <li><a href="#q2">How do I create an account?</a></li>
+            <li><a href="#q3">How do I place an order?</a></li>
+            <li><a href="#q4">What payment methods are accepted?</a></li>
+            <li><a href="#q5">How much does shipping cost?</a></li>
+            <li><a href="#q6">Can I track my order?</a></li>
+            <li><a href="#q7">What is your return policy?</a></li>
+            <li><a href="#q8">Are my payment details secure?</a></li>
+            <li><a href="#q9">Can I modify or cancel my order?</a></li>
+            <li><a href="#q10">How do I contact customer support?</a></li>
+        </ol>
+    </div>
+
+    <hr />
+
+    <!-- Answers -->
+    <div class="col-12">
+
+        <div id="q1" class="mb-4">
+            <h5 class="fw-bold text-primary">1. What is Walmart Groceries?</h5>
+            <p>Walmart Groceries is an online grocery shopping platform that allows you to browse and purchase everyday grocery items from the comfort of your home. We offer a wide range of products including fresh produce, dairy, beverages, snacks, and pantry staples at everyday low prices.</p>
+        </div>
+
+        <div id="q2" class="mb-4">
+            <h5 class="fw-bold text-primary">2. How do I create an account?</h5>
+            <p>Click the <strong>Register</strong> link on the homepage or in the navigation menu. Fill in your first name, last name, email address, phone number, address, and create a password. Once submitted, your account will be created and you can start shopping immediately.</p>
+        </div>
+
+        <div id="q3" class="mb-4">
+            <h5 class="fw-bold text-primary">3. How do I place an order?</h5>
+            <p>Browse our product catalog and click <strong>Add to Cart</strong> on any item you wish to purchase. When you are ready, go to your cart and click <strong>Checkout</strong>. Enter your shipping address and payment details, then click <strong>Complete Order</strong> to finalize your purchase.</p>
+        </div>
+
+        <div id="q4" class="mb-4">
+            <h5 class="fw-bold text-primary">4. What payment methods are accepted?</h5>
+            <p>We accept all major credit and debit cards including <strong>Visa, Mastercard, American Express, and Discover</strong>. Payment information is collected securely at checkout. We do not store your full card details on our servers.</p>
+        </div>
+
+        <div id="q5" class="mb-4">
+            <h5 class="fw-bold text-primary">5. How much does shipping cost?</h5>
+            <p>Standard shipping is <strong>$5.99</strong> for orders under $35. Orders over <strong>$35 qualify for free standard shipping</strong>. Express and overnight shipping options are also available at additional cost. See our <a asp-controller="Info" asp-action="Policies">Policies page</a> for full shipping rates.</p>
+        </div>
+
+        <div id="q6" class="mb-4">
+            <h5 class="fw-bold text-primary">6. Can I track my order?</h5>
+            <p>Yes! After placing an order, you can view your order details by visiting the <strong>My Orders</strong> page. Your order ID and purchase details will be listed there. Shipping tracking information will be provided via email once your order has been dispatched.</p>
+        </div>
+
+        <div id="q7" class="mb-4">
+            <h5 class="fw-bold text-primary">7. What is your return policy?</h5>
+            <p>We accept returns within <strong>30 days</strong> of delivery for unopened, non-perishable items. Perishable items such as fresh produce and dairy are non-returnable but eligible for store credit if they arrived damaged or spoiled. See our <a asp-controller="Info" asp-action="Policies">Policies page</a> for full details.</p>
+        </div>
+
+        <div id="q8" class="mb-4">
+            <h5 class="fw-bold text-primary">8. Are my payment details secure?</h5>
+            <p>Yes. Our website uses <strong>HTTPS encryption</strong> to protect all data transmitted between your browser and our servers. We follow industry-standard security practices to ensure your personal and payment information is kept safe at all times.</p>
+        </div>
+
+        <div id="q9" class="mb-4">
+            <h5 class="fw-bold text-primary">9. Can I modify or cancel my order?</h5>
+            <p>Orders can be modified or cancelled within <strong>1 hour</strong> of being placed. After that window, the order will have entered processing and cannot be changed. Please contact our customer support team as soon as possible if you need to make changes.</p>
+        </div>
+
+        <div id="q10" class="mb-4">
+            <h5 class="fw-bold text-primary">10. How do I contact customer support?</h5>
+            <p>You can reach our customer support team by:</p>
+            <ul>
+                <li>📧 Email: <strong>support@walmart-groceries.com</strong></li>
+                <li>📞 Phone: <strong>1-800-925-6278</strong> (Mon–Fri, 8am–8pm CST)</li>
+                <li>💬 Live Chat: Available on this website during business hours</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

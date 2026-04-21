@@ -19,8 +19,7 @@
         <div class="d-flex align-items-center gap-3 pe-3">
             <a asp-controller="Info" asp-action="About" class="text-white text-decoration-none small">About</a>
             <a asp-controller="Info" asp-action="Policies" class="text-white text-decoration-none small">Policies</a>
-            <a asp-controller="Info" asp-action="FAQ" class="text-white text-decoration-none small">FAQ</a>
-            <a asp-controller="Order" asp-action="Retrieve" class="text-white text-decoration-none small">My Orders</a>
+            <a asp-controller="Info" asp-action="Faq" class="text-white text-decoration-none small">FAQ</a>
             @await Component.InvokeAsync("CartSummary")
         </div>
     </nav>
@@ -32,14 +31,32 @@
             @RenderBody()
         </div>
     </div>
-    <div class="mt-auto py-3 px-5 bg-primary w-100 justify-content-between align-content-center d-flex text-white">
-        <div></div>
-        <div></div>
-        <a asp-controller="Info" asp-action="About" class="text-white text-decoration-none small">About Us</a>
-        <a asp-controller="Info" asp-action="Policies" class="text-white text-decoration-none small">Policies</a>
-        <a asp-controller="Info" asp-action="FAQ" class="text-white text-decoration-none small">FAQ</a>
-        <div></div>
-        <div></div>
-    </div>
+    <footer class="mt-auto py-4 px-5 bg-primary text-white">
+        <div class="d-flex justify-content-between flex-wrap gap-4">
+            <div>
+                <img src="//i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg" style="width:35px;" class="mb-2" />
+                <p class="small mb-0">© 2026 Walmart Groceries. All rights reserved.</p>
+                <p class="small mb-0">Save Money. Live Better.</p>
+            </div>
+            <div>
+                <h6 class="fw-bold">Shop</h6>
+                <a asp-controller="Product" asp-action="List" class="d-block text-white text-decoration-none small">Groceries</a>
+                <a asp-controller="Cart" asp-action="Index" asp-route-returnUrl="/" class="d-block text-white text-decoration-none small">My Cart</a>
+                <a asp-controller="Order" asp-action="Checkout" class="d-block text-white text-decoration-none small">Checkout</a>
+            </div>
+            <div>
+                <h6 class="fw-bold">Company</h6>
+                <a asp-controller="Home" asp-action="Index" class="d-block text-white text-decoration-none small">Home</a>
+                <a asp-controller="Info" asp-action="About" class="d-block text-white text-decoration-none small">About Us</a>
+                <a asp-controller="Info" asp-action="Faq" class="d-block text-white text-decoration-none small">FAQ</a>
+            </div>
+            <div>
+                <h6 class="fw-bold">Policies</h6>
+                <a asp-controller="Info" asp-action="Policies" class="d-block text-white text-decoration-none small">Shipping Policy</a>
+                <a asp-controller="Info" asp-action="Policies" class="d-block text-white text-decoration-none small">Return Policy</a>
+                <a asp-controller="Info" asp-action="Policies" class="d-block text-white text-decoration-none small">Tax Policy</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

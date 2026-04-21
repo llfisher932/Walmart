@@ -1,0 +1,57 @@
+@model IEnumerable<Walmart.Models.Order>
+
+<div class="row ms-1 mt-4">
+    <h2 class="fw-bold">My Orders</h2>
+    <p class="text-muted">All past orders are listed below.</p>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">No orders have been placed yet.</div>
+    }
+    else
+    {
+        foreach (var order in Model)
+        {
+            var subtotal = order.Lines.Sum(l => l.Quantity * l.Product.Price);
+            var shipping = subtotal >= 35 ? 0m : 5.99m;
+            var tax = subtotal * 0.075m;
+            var total = subtotal + shipping + tax;
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+                    <span class="fw-bold">Order #@order.OrderID</span>
+                    <span>Shipping to: @order.City, @order.State</span>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm mb-2">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-end">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var line in order.Lines)
+                            {
+                                <tr>
+                                    <td>@line.Product.Name</td>
+                                    <td class="text-center">@line.Quantity</td>
+                                    <td class="text-end">@((line.Quantity * line.Product.Price).ToString("c"))</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="text-end">
+                        <small class="text-muted">Shipping: @(shipping == 0 ? "FREE" : shipping.ToString("c")) &nbsp;|&nbsp; Tax: @tax.ToString("c") &nbsp;|&nbsp;</small>
+                        <strong>Total: @total.ToString("c")</strong>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    <div class="text-center mt-2">
+        <a asp-controller="Product" asp-action="List" class="btn btn-primary">Continue Shopping</a>
+    </div>
+</div>

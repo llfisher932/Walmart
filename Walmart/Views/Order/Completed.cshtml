@@ -1,5 +1,68 @@
-﻿<div class="row ms-1">
-    <h2>Thanks!</h2>
-    <p>Thanks for placing your order.</p>
-    <p>We'll ship your goods as soon as possible.</p>
+@model Walmart.Models.Order
+
+<div class="row ms-1 mt-4">
+    <div class="col-md-7">
+
+        <div class="alert alert-success text-center py-4">
+            <i class="fa fa-check-circle fa-3x mb-2"></i>
+            <h3 class="fw-bold">Order Confirmed!</h3>
+            <p class="mb-1">Thank you, <strong>@Model.Name</strong>! Your order has been placed.</p>
+            <p class="mb-0">Order ID: <strong>#@Model.OrderID</strong></p>
+        </div>
+
+        <h5 class="fw-bold border-bottom pb-2 mt-4">Order Summary</h5>
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>Item</th>
+                    <th class="text-center">Qty</th>
+                    <th class="text-end">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var line in Model.Lines)
+                {
+                    <tr>
+                        <td>@line.Product.Name</td>
+                        <td class="text-center">@line.Quantity</td>
+                        <td class="text-end">@((line.Quantity * line.Product.Price).ToString("c"))</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                @{
+                    var subtotal = Model.Lines.Sum(l => l.Quantity * l.Product.Price);
+                    var shipping = subtotal >= 35 ? 0m : 5.99m;
+                    var tax = subtotal * 0.075m;
+                    var total = subtotal + shipping + tax;
+                }
+                <tr>
+                    <td colspan="2" class="text-end">Subtotal:</td>
+                    <td class="text-end">@subtotal.ToString("c")</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-end">Shipping:</td>
+                    <td class="text-end">@(shipping == 0 ? "FREE" : shipping.ToString("c"))</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-end">Tax (8%):</td>
+                    <td class="text-end">@tax.ToString("c")</td>
+                </tr>
+                <tr class="fw-bold">
+                    <td colspan="2" class="text-end">Total:</td>
+                    <td class="text-end">@total.ToString("c")</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <h5 class="fw-bold border-bottom pb-2 mt-4">Shipping To</h5>
+        <p class="mb-1">@Model.Name</p>
+        <p class="mb-1">@Model.Line1 @Model.Line2 @Model.Line3</p>
+        <p class="mb-1">@Model.City, @Model.State @Model.Zip</p>
+        <p class="mb-3">@Model.Country</p>
+
+        <div class="text-center mt-4">
+            <a asp-controller="Product" asp-action="List" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
 </div>

@@ -1,1 +1,86 @@
-﻿<div>Policies page!</div>
+@{
+    ViewData["Title"] = "Policies";
+}
+
+<div class="row ms-1 mt-4">
+
+    <div class="p-4 mb-4 text-white rounded-3" style="background: linear-gradient(135deg, #0071ce, #004f9a);">
+        <h1 class="fw-bold">Our Policies</h1>
+        <p class="mb-0 fs-5">Everything you need to know about pricing, shipping, taxes, and returns.</p>
+    </div>
+
+    <!-- Pricing -->
+    <div class="col-12 mb-4">
+        <h3 class="fw-bold border-bottom pb-2">💲 Product Pricing</h3>
+        <p>All prices displayed on our website are in <strong>US Dollars (USD)</strong> and are subject to change without notice. We strive to offer the lowest prices on all grocery items every day.</p>
+        <ul>
+            <li>Prices are set per unit unless otherwise noted.</li>
+            <li>Sale prices are valid for the duration of the listed promotion only.</li>
+            <li>We reserve the right to correct any pricing errors at any time.</li>
+        </ul>
+    </div>
+
+    <!-- Shipping -->
+    <div class="col-12 mb-4">
+        <h3 class="fw-bold border-bottom pb-2">🚚 Shipping Policy</h3>
+        <p>We offer several shipping options to fit your needs:</p>
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>Shipping Method</th>
+                    <th>Estimated Delivery</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Standard Shipping</td>
+                    <td>5–7 Business Days</td>
+                    <td>$5.99</td>
+                </tr>
+                <tr>
+                    <td>Express Shipping</td>
+                    <td>2–3 Business Days</td>
+                    <td>$12.99</td>
+                </tr>
+                <tr>
+                    <td>Overnight Shipping</td>
+                    <td>Next Business Day</td>
+                    <td>$24.99</td>
+                </tr>
+                <tr>
+                    <td><strong>Free Shipping</strong></td>
+                    <td>5–7 Business Days</td>
+                    <td><strong>Free on orders over $35</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="text-muted small">* Shipping times are estimates and may vary based on location and product availability.</p>
+    </div>
+
+    <!-- Tax -->
+    <div class="col-12 mb-4">
+        <h3 class="fw-bold border-bottom pb-2">🧾 Tax Policy</h3>
+        <p>Sales tax is calculated based on the shipping destination and applicable state/local tax laws.</p>
+        <ul>
+            <li>Tax rate: <strong>7.5% on all applicable items.</strong></li>
+            <li>Most grocery food items are <strong>tax-exempt</strong> under applicable state law.</li>
+            <li>Non-food grocery items (e.g., cleaning supplies, paper products) may be subject to tax.</li>
+            <li>The final tax amount is calculated and shown at checkout.</li>
+        </ul>
+    </div>
+
+    <!-- Returns -->
+    <div class="col-12 mb-4">
+        <h3 class="fw-bold border-bottom pb-2">🔄 Return & Refund Policy</h3>
+        <p>We want you to be 100% satisfied with your purchase. If you are not happy with your order:</p>
+        <ul>
+            <li>Returns are accepted within <strong>30 days</strong> of delivery.</li>
+            <li>Items must be <strong>unopened and in original packaging</strong> to qualify for a full refund.</li>
+            <li>Perishable grocery items (fresh produce, dairy, meat) are <strong>non-returnable</strong> but eligible for a store credit if the item arrived damaged or spoiled.</li>
+            <li>To initiate a return, contact our customer support team with your order number.</li>
+            <li>Refunds are processed within <strong>5–7 business days</strong> to your original payment method.</li>
+        </ul>
+    </div>
+
+</div>
