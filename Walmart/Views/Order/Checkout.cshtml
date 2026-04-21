@@ -27,12 +27,12 @@
 
             <div class="mb-3">
                 <label class="form-label fw-semibold">Address Line 2 <span class="text-muted fw-normal">(Optional)</span></label>
-                <input asp-for="Line2" class="form-control" placeholder="Apt, Suite, Unit, etc." />
+                <input type="text" name="Line2" class="form-control" placeholder="Apt, Suite, Unit, etc." />
             </div>
 
             <div class="mb-3">
                 <label class="form-label fw-semibold">Address Line 3 <span class="text-muted fw-normal">(Optional)</span></label>
-                <input asp-for="Line3" class="form-control" placeholder="Additional address info" />
+                <input type="text" name="Line3" class="form-control" placeholder="Additional address info" />
             </div>
 
             <div class="row">
@@ -71,7 +71,7 @@
 
             <div class="mb-3">
                 <label class="form-label fw-semibold">Country</label>
-                <input asp-for="Country" class="form-control" value="United States" readonly />
+                <input type="text" name="Country" class="form-control" value="United States" readonly />
             </div>
 
             <h5 class="fw-bold mt-3 border-bottom pb-2">Payment</h5>
