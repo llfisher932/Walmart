@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del \"C:/Users/Yousif/Desktop/Walmart/Walmart/Models/SeedData.cs\")",
+      "Bash(pandoc \"C:/Users/Yousif/Downloads/COP3855-FinalImplPrj -1.docx\" -t plain)",
+      "Read(//c/Users/Yousif/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/5bfc4f95-55df-4f49-9d9b-05962c51c643/e62d318e-c319-4ad7-b0f6-faac61830244/skills/docx/**)",
+      "Bash(python scripts/office/unpack.py \"C:/Users/Yousif/Downloads/COP3855-FinalImplPrj -1.docx\" /tmp/docx_unpacked/)",
+      "Bash(pip install *)",
+      "Bash(python3 -c ' *)",
+      "Bash(python -c ' *)",
+      "Bash(python scripts/office/unpack.py \"C:/Users/Yousif/Downloads/COP3855-FinalImplPrj -1.docx\" \"C:/Users/Yousif/AppData/Local/Temp/docx_unpacked/\")"
+    ]
+  }
+}
